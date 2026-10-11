@@ -23,8 +23,10 @@ jobs:
         with:
           channel: 'stable'
 
-      - name: Install Dependencies
-        run: flutter pub get
+      - name: Re-create Android files & Get dependencies
+        run: |
+          flutter create . --platforms=android
+          flutter pub get
 
       - name: Build APK
         run: flutter build apk --debug
